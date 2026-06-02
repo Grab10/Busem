@@ -1,0 +1,121 @@
+.app {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.step {
+  display: inline-block;
+  margin: 0;
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+.subtitle {
+  margin: 0.75rem auto 0;
+  max-width: 60ch;
+  color: #4b5563;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.persona-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.persona {
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.persona.active {
+  border-color: #4f46e5;
+  background: #eef2ff;
+}
+
+.primary {
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 10px;
+  background: #4f46e5;
+  color: #ffffff;
+  padding: 0.7rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.primary:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+.video-player {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 10px;
+  background: #000000;
+}
+
+.error {
+  color: #b91c1c;
+  margin: 0;
+  font-weight: 600;
+}
+
+.quiz-options {
+  display: grid;
+  gap: 0.6rem;
+  margin: 1rem 0;
+}
+
+.option {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
+}
+
+.feedback {
+  margin: 0.4rem 0 0;
+  font-weight: 600;
+}
+
+.feedback.ok {
+  color: #047857;
+}
+
+.feedback.bad {
+  color: #b45309;
+}
+
+@media (max-width: 700px) {
+  .app {
+    padding: 1.25rem 0.75rem 2rem;
+  }
+}
