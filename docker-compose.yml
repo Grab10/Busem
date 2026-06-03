@@ -1,0 +1,9 @@
+services:
+  learning-demo:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      # Eigene Videos ohne Image-Neubau: Dateien in public/videos/ ersetzen
+      - ./public/videos:/usr/share/nginx/html/videos:ro
+    restart: unless-stopped
