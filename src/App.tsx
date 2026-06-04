@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { VIDEO_FILES, videoUrl } from './config/videos'
 import { quizQuestions } from './data/quiz'
 import './App.css'
 
@@ -39,7 +40,7 @@ function App() {
     }
   }, [step])
 
-  const roleVideo = selectedPersona ? `/videos/${selectedPersona}.mp4` : ''
+  const roleVideo = selectedPersona ? videoUrl(VIDEO_FILES[selectedPersona]) : ''
 
   const handleContinueFromPersona = () => {
     if (!selectedPersona) {
@@ -129,7 +130,7 @@ function App() {
             beide Rollen.
           </p>
 
-          <video controls src="/videos/general.mp4" className="video-player">
+          <video controls src={videoUrl(VIDEO_FILES.general)} className="video-player">
             Dein Browser unterstützt kein HTML5-Video.
           </video>
 

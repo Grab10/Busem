@@ -57,5 +57,7 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            VITE_VIDEO_BASE_URL=${{ vars.VITE_VIDEO_BASE_URL || 'https://t3.storageapi.dev/contained-cart-dvzifke-sx' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
