@@ -106,9 +106,25 @@ Bei Push auf `main` baut die Workflow-Datei `.github/workflows/docker-ghcr.yml` 
 
 `ghcr.io/grab10/busem:latest`
 
-Optional im Repository unter **Settings → Secrets and variables → Actions → Variables**:
+Unter **Settings → Secrets and variables → Actions** eintragen:
 
-`VITE_VIDEO_BASE_URL` = `https://t3.storageapi.dev/contained-cart-dvzifke-sx`
+**Secrets** (Pflicht für Video-Presign beim Image-Build):
+
+| Name | Wert |
+|------|------|
+| `AWS_ACCESS_KEY_ID` | `tid_…` |
+| `AWS_SECRET_ACCESS_KEY` | `tsec_…` |
+
+**Variables** (optional, sonst Defaults):
+
+| Name | Default |
+|------|---------|
+| `VITE_VIDEO_BASE_URL` | `https://t3.storageapi.dev/contained-cart-dvzifke-sx` |
+| `AWS_ENDPOINT_URL` | `https://t3.storageapi.dev` |
+| `AWS_S3_BUCKET_NAME` | `contained-cart-dvzifke-sx` |
+| `AWS_DEFAULT_REGION` | `auto` |
+
+Presigned Video-URLs sind ~7 Tage gültig — danach Workflow erneut laufen lassen (neues Image).
 
 Lokal starten:
 

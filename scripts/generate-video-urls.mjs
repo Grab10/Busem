@@ -21,7 +21,7 @@ const PRESIGN_EXPIRES_SECONDS = 60 * 60 * 24 * 7 // 7 days (SigV4 max)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '..')
 
-loadEnv({ path: path.join(repoRoot, '.env') })
+loadEnv({ path: path.join(repoRoot, '.env'), quiet: true })
 
 const endpoint = process.env.AWS_ENDPOINT_URL ?? TIGRIS_ENDPOINT
 const bucket =
@@ -33,7 +33,9 @@ const accessKeyId = process.env.AWS_ACCESS_KEY_ID
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY
 
 if (!accessKeyId || !secretAccessKey) {
-  console.error('Missing AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY in .env')
+  console.error(
+    'Missing AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY (set in .env locally or as Docker build-args / GitHub Actions secrets).',
+  )
   process.exit(1)
 }
 
